@@ -16,9 +16,10 @@ class Comments extends React.Component {
               <div className="row">
                 <div className="col-md-offset-1">
                   <hr/>
-                  <p>
-                    Comment text
-                  </p>
+                  <h5>Comments</h5>
+                  {
+                    this.props.posts.comments.map((comment, i) => <p key={i}>{comment}</p>)
+                  }
                   <form className="form-inline">
                     <div className="form-group">
                       <input className="form-control"/>
@@ -27,9 +28,6 @@ class Comments extends React.Component {
                       <input type="submit" className="btn btn-primary"/>
                     </div>
                   </form>
-                  {
-                    this.props.posts.comments.map((comment, i) => <p key={i}>{comment}</p>)
-                  }
                 </div>
               </div>
             </div>)
