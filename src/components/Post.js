@@ -1,5 +1,7 @@
 import React from 'react';
 import Comments from './Comments';
+import Votes from './Votes';
+import moment from 'moment';
 
 class Post extends React.Component {
   constructor() {
@@ -31,9 +33,7 @@ class Post extends React.Component {
                 <h4 className="media-heading">
                   {this.props.details.title}
                   |
-                  <a><i className="glyphicon glyphicon-arrow-up"></i></a>
-                  <a><i className="glyphicon glyphicon-arrow-down"></i></a>
-                  10
+                  <Votes postKey={this.props.name} addVote={this.props.addVote}/>
                 </h4>
                 <div className="text-right">
                   {this.props.details.author}
@@ -42,11 +42,11 @@ class Post extends React.Component {
                   {this.props.details.description}
                 </p>
                 <div>
-                  {Date.now()}
+                  {moment(Date.now()).fromNow()}
                   |
                   <i className="glyphicon glyphicon-comment"></i>
                   <a onClick={this.toggleComments}>
-                    Comments
+                    {this.props.details.comments.length} Comments
                   </a>
                 </div>
                 <Comments showComments={this.state.showComments} posts={this.props.details}/>

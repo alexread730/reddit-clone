@@ -12,7 +12,7 @@ class PostContainer extends React.Component {
           {
             Object
             .keys(this.props.posts)
-            .map((key) => <Post key={key} name={key} details={this.props.posts[key]}/>)
+            .map((key) => <Post key={key} name={key} details={this.props.posts[key]} addVote={this.props.addVote}/>)
           }
         </ul>
       </div>
