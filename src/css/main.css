@@ -13,3 +13,16 @@
 main.container {
   margin-bottom: 4em;
 }
+
+.create-button {
+  float: right;
+  margin: 10px;
+}
+
+.submit-button {
+  margin: 10px;
+}
+
+.post-container {
+  margin-top: 4em;
+}
