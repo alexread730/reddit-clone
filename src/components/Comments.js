@@ -27,6 +27,9 @@ class Comments extends React.Component {
                       <input type="submit" className="btn btn-primary"/>
                     </div>
                   </form>
+                  {
+                    this.props.posts.comments.map((comment, i) => <p key={i}>{comment}</p>)
+                  }
                 </div>
               </div>
             </div>)

@@ -49,7 +49,7 @@ class Post extends React.Component {
                     Comments
                   </a>
                 </div>
-                <Comments showComments={this.state.showComments}/>
+                <Comments showComments={this.state.showComments} posts={this.props.details}/>
               </div>
             </div>
 
