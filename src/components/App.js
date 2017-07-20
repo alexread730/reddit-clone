@@ -9,6 +9,7 @@ class App extends React.Component {
     super();
 
     this.click = this.click.bind(this);
+    this.addPost = this.addPost.bind(this);
     this.state = {
       posts: samplePosts,
       showForm: false
@@ -19,8 +20,18 @@ class App extends React.Component {
   click() {
     this.setState({
       showForm: !this.state.showForm
-    })
+    });
+  }
 
+  addPost(post) {
+    const posts = {...this.state.posts};
+    const timestamp = Date.now();
+    posts[`post-${timestamp}`] = post;
+
+    this.setState({
+      posts: posts,
+      showForm: !this.state.showForm
+    })
   }
 
   render() {
@@ -31,10 +42,10 @@ class App extends React.Component {
         <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
         {
           this.state.showForm
-            ? <CreateForm />
+            ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
             : null
         }
-        <PostContainer posts={this.state.posts}/>
+        <PostContainer posts={this.state.posts} />
 
       </div>
     )

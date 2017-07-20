@@ -4,11 +4,17 @@ import Comments from './Comments';
 class Post extends React.Component {
   constructor() {
     super();
-    this.showComments = this.showComments.bind(this);
+    this.toggleComments = this.toggleComments.bind(this);
+
+    this.state = {
+      showComments: false
+    }
   }
 
-  showComments() {
-    
+  toggleComments() {
+    this.setState({
+      showComments: !this.state.showComments
+    });
   }
 
   render() {
@@ -39,11 +45,11 @@ class Post extends React.Component {
                   {Date.now()}
                   |
                   <i className="glyphicon glyphicon-comment"></i>
-                  <a onClick={this.showComments}>
+                  <a onClick={this.toggleComments}>
                     Comments
                   </a>
                 </div>
-                <Comments />
+                <Comments showComments={this.state.showComments}/>
               </div>
             </div>
 
