@@ -33,7 +33,7 @@ class Post extends React.Component {
                 <h4 className="media-heading">
                   {this.props.details.title}
                   |
-                  <Votes postKey={this.props.name} addVote={this.props.addVote}/>
+                  <Votes votes={this.props.details.votes} postKey={this.props.name} addVote={this.props.addVote}/>
                 </h4>
                 <div className="text-right">
                   {this.props.details.author}

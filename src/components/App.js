@@ -39,7 +39,6 @@ class App extends React.Component {
     const posts = {...this.state.posts};
     const votes = posts[post].votes;
     this.state.posts[post].votes = this.state.posts[post].votes + 1
-    console.log(votes);
     this.setState({
       posts
     })
