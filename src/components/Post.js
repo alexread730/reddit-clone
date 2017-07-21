@@ -33,7 +33,7 @@ class Post extends React.Component {
                 <h4 className="media-heading">
                   {this.props.details.title}
                   |
-                  <Votes votes={this.props.details.votes} postKey={this.props.name} addVote={this.props.addVote}/>
+                  <Votes votes={this.props.details.votes} postKey={this.props.name} addVote={this.props.addVote} deleteVote={this.props.deleteVote}/>
                 </h4>
                 <div className="text-right">
                   {this.props.details.author}
@@ -43,8 +43,11 @@ class Post extends React.Component {
                 </p>
                 <div>
                   {moment(Date.now()).fromNow()}
+                  <span> </span>
                   |
+                  <span> </span>
                   <i className="glyphicon glyphicon-comment"></i>
+                  <span> </span>
                   <a onClick={this.toggleComments}>
                     {this.props.details.comments.length} Comments
                   </a>

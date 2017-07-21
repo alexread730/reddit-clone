@@ -11,6 +11,7 @@ class App extends React.Component {
     this.click = this.click.bind(this);
     this.addPost = this.addPost.bind(this);
     this.addVote = this.addVote.bind(this);
+    this.deleteVote = this.deleteVote.bind(this);
     this.state = {
       posts: samplePosts,
       showForm: false
@@ -44,6 +45,15 @@ class App extends React.Component {
     })
   }
 
+  deleteVote(post) {
+    const posts = {...this.state.posts};
+    const votes = posts[post].votes;
+    this.state.posts[post].votes = this.state.posts[post].votes - 1
+    this.setState({
+      posts
+    })
+  }
+
   render() {
 
     return (
@@ -55,7 +65,7 @@ class App extends React.Component {
             ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
             : null
         }
-        <PostContainer posts={this.state.posts} addVote={this.addVote}/>
+        <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote}/>
 
       </div>
     )
