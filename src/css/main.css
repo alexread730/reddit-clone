@@ -30,3 +30,8 @@ main.container {
 .comments {
   margin-left: 3em;
 }
+
+.filter {
+  margin: 10px;
+  width: 30vw;
+}

@@ -38,7 +38,6 @@ class App extends React.Component {
 
   addVote(post) {
     const posts = {...this.state.posts};
-    const votes = posts[post].votes;
     this.state.posts[post].votes = this.state.posts[post].votes + 1
     this.setState({
       posts
@@ -47,7 +46,6 @@ class App extends React.Component {
 
   deleteVote(post) {
     const posts = {...this.state.posts};
-    const votes = posts[post].votes;
     this.state.posts[post].votes = this.state.posts[post].votes - 1
     this.setState({
       posts
@@ -59,15 +57,15 @@ class App extends React.Component {
     return (
       <div className="app">
         <Nav />
-        <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
-        {
-          this.state.showForm
-            ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
-            : null
-        }
-        <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote}/>
+          <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
+          {
+            this.state.showForm
+              ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
+              : null
+          }
+          <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote}/>
 
-      </div>
+        </div>
     )
   }
 }

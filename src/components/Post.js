@@ -24,7 +24,6 @@ class Post extends React.Component {
       <div className="post container">
         <div className="row">
           <div className="col-md-12">
-
             <div className="well">
               <div className="media-left">
                 <img src={this.props.details.img_url} className="media-object" alt={this.props.details.img_url}/>
