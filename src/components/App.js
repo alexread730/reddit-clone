@@ -32,7 +32,8 @@ class App extends React.Component {
 
     this.setState({
       posts: posts,
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      filterVal: ''
     })
   }
 
@@ -57,12 +58,12 @@ class App extends React.Component {
     return (
       <div className="app">
         <Nav />
-          <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
-          {
+        <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
+        {
             this.state.showForm
               ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
               : null
-          }
+        }
           <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote}/>
 
         </div>
