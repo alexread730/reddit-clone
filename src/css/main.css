@@ -35,3 +35,8 @@ main.container {
   margin: 10px;
   width: 30vw;
 }
+
+.dropdown {
+  margin-left: 1em;
+  margin-bottom: 15px;
+}
