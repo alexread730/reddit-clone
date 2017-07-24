@@ -28,6 +28,7 @@ class App extends React.Component {
   addPost(post) {
     const posts = {...this.state.posts};
     const timestamp = Date.now();
+    post['name'] = `post-${timestamp}`;
     posts[`post-${timestamp}`] = post;
 
     this.setState({

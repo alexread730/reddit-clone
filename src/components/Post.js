@@ -20,6 +20,7 @@ class Post extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="post container">
         <div className="row">
