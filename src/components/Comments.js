@@ -2,6 +2,14 @@ import React from 'react';
 
 class Comments extends React.Component {
 
+  postComment(event) {
+    event.preventDefault();
+    let comment = this.newComment.value
+    this.props.addComment(comment, this.props.postKey)
+    this.newComment.value = '';
+    this.newComment.focus();
+  }
+
   render() {
 
     let comments = <div className="comments">
@@ -14,10 +22,10 @@ class Comments extends React.Component {
           }
           <form className="form-inline">
             <div className="form-group">
-              <input className="form-control"/>
+              <input className="form-control" ref={(input) => this.newComment = input}/>
             </div>
             <div className="form-group">
-              <input type="submit" className="btn btn-primary"/>
+              <input type="submit" className="btn btn-primary" onClick={this.postComment.bind(this)}/>
             </div>
           </form>
         </div>

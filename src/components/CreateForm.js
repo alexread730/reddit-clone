@@ -11,7 +11,8 @@ class CreateForm extends React.Component {
       description: this.description.value,
       img_url: this.img_url.value,
       comments: [],
-      votes: 0
+      votes: 0,
+      created: Date.now()
     }
     this.props.addPost(post);
     this.postForm.reset();

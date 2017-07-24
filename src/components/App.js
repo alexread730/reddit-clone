@@ -12,6 +12,7 @@ class App extends React.Component {
     this.addPost = this.addPost.bind(this);
     this.addVote = this.addVote.bind(this);
     this.deleteVote = this.deleteVote.bind(this);
+    this.addComment = this.addComment.bind(this);
     this.state = {
       posts: samplePosts,
       showForm: false
@@ -54,6 +55,14 @@ class App extends React.Component {
     })
   }
 
+  addComment(comment, post) {
+    const posts = {...this.state.posts};
+    this.state.posts[post].comments.push(comment);
+    this.setState({
+      posts
+    })
+  }
+
   render() {
 
     return (
@@ -65,7 +74,7 @@ class App extends React.Component {
               ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
               : null
         }
-          <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote}/>
+        <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote} addComment={this.addComment}/>
 
         </div>
     )

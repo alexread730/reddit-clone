@@ -20,6 +20,7 @@ class Post extends React.Component {
   }
 
   render() {
+
     return (
       <div className="post container">
         <div className="row">
@@ -41,7 +42,9 @@ class Post extends React.Component {
                   {this.props.details.description}
                 </p>
                 <div>
-                  {moment(Date.now()).fromNow()}
+                  {
+                    moment(this.props.details.created).fromNow()
+                  }
                   <span> </span>
                   |
                   <span> </span>
@@ -51,7 +54,7 @@ class Post extends React.Component {
                     {this.props.details.comments.length} Comments
                   </a>
                 </div>
-                <Comments showComments={this.state.showComments} posts={this.props.details}/>
+                <Comments postKey={this.props.name} addComment={this.props.addComment} showComments={this.state.showComments} posts={this.props.details}/>
               </div>
             </div>
 

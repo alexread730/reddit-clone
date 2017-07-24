@@ -33,9 +33,9 @@ class PostContainer extends React.Component {
     if (this.state.sort === 'votes') {
       newArray = postArray.sort((a, b) => {return b.votes - a.votes});
     } else if (this.state.sort === 'title') {
-        newArray = postArray.sort((a, b) => {return b.title - a.title});
+        newArray = postArray.sort((a, b) => {return a.title - b.title});
     } else if (this.state.sort === 'date') {
-        newArray = postArray.sort((a, b) => {return b.date - a.date});
+        newArray = postArray.sort((a, b) => {return b.created - a.created});
       }
 
     //filter array based on input box
@@ -57,7 +57,7 @@ class PostContainer extends React.Component {
         </select>
         <ul>
           {
-            newArray.map((post) => <Post key={post.name} name={post.name} details={post} addVote={this.props.addVote} deleteVote={this.props.deleteVote}/>)
+            newArray.map((post) => <Post key={post.name} name={post.name} details={post} addVote={this.props.addVote} deleteVote={this.props.deleteVote} addComment={this.props.addComment}/>)
           }
         </ul>
       </div>
