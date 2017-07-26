@@ -15,14 +15,18 @@ class App extends React.Component {
     this.addComment = this.addComment.bind(this);
     this.state = {
       posts: samplePosts,
-      showForm: false
+      showForm: false,
+      editPost: '',
+      formType: ''
     };
 
   }
 
-  click() {
+  click(post, type) {
     this.setState({
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      editPost: post,
+      formType: type
     });
   }
 
@@ -55,6 +59,11 @@ class App extends React.Component {
     })
   }
 
+  editPost(post) {
+    const posts = {...this.state.posts};
+
+  }
+
   addComment(comment, post) {
     const posts = {...this.state.posts};
     this.state.posts[post].comments.push(comment);
@@ -68,13 +77,13 @@ class App extends React.Component {
     return (
       <div className="app">
         <Nav />
-        <button onClick={this.click} className="btn btn-primary create-button">Create Post</button>
+        <button onClick={this.click.bind(this, null, 'create')} className="btn btn-primary create-button">Create Post</button>
         {
             this.state.showForm
-              ? <CreateForm addPost={this.addPost} showForm={this.state.showForm}/>
+              ? <CreateForm addPost={this.addPost} showForm={this.state.showForm} formType={this.state.formType}/>
               : null
         }
-        <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote} addComment={this.addComment}/>
+        <PostContainer posts={this.state.posts} addVote={this.addVote} deleteVote={this.deleteVote} addComment={this.addComment} click={this.click} showForm={this.state.showForm} formType="this.state.formType"/>
 
         </div>
     )

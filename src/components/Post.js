@@ -37,6 +37,8 @@ class Post extends React.Component {
                 </h4>
                 <div className="text-right">
                   {this.props.details.author}
+                  <br/>
+                  <button onClick={this.props.click.bind(this, this.props.name, 'edit')} className="btn btn-danger edit-button">Edit Post</button>
                 </div>
                 <p>
                   {this.props.details.description}

@@ -57,7 +57,7 @@ class PostContainer extends React.Component {
         </select>
         <ul>
           {
-            newArray.map((post) => <Post key={post.name} name={post.name} details={post} addVote={this.props.addVote} deleteVote={this.props.deleteVote} addComment={this.props.addComment}/>)
+            newArray.map((post) => <Post key={post.name} name={post.name} details={post} addVote={this.props.addVote} deleteVote={this.props.deleteVote} addComment={this.props.addComment} click={this.props.click} showForm={this.props.showForm} editPost={this.props.editPost}/>)
           }
         </ul>
       </div>

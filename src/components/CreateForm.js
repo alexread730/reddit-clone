@@ -38,9 +38,16 @@ class CreateForm extends React.Component {
           <input id="image-url" className="form-control"ref={(input) => { this.img_url = input; }} required />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary submit-button">
-            Create Post
-          </button>
+          {
+            (this.props.formType == 'edit')
+              ? <button type="submit" className="btn btn-danger submit-button">
+                Edit Post
+              </button>
+              : <button type="submit" className="btn btn-primary submit-button">
+                Create Post
+              </button>
+          }
+
         </div>
       </form>
     );

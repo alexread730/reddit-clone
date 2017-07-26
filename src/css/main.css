@@ -17,6 +17,7 @@ main.container {
 .create-button {
   float: right;
   margin: 10px;
+  margin-right: 50px;
 }
 
 .submit-button {
